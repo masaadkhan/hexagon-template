@@ -1,5 +1,6 @@
 bazel-out
 bazel-attempt_three
+bazel-hexagon-template
 bazel-bin
 bazel-testlogs
 MODULE.bazel.lock

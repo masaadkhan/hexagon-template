@@ -2,3 +2,15 @@ cc_binary(
     name = "hello-world",
     srcs = ["hello-world.cc"],
 )
+
+sh_test(
+    name = "matmul_kernel_test",
+    srcs = ["run_qemu.sh"],
+    data = [":matmul_kernel"],
+    args = ["$(location :matmul_kernel)"],
+)
+
+cc_binary(
+    name = "matmul_kernel",
+    srcs = ["matmul_kernel.cc"],
+)
