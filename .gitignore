@@ -1,0 +1,5 @@
+bazel-out
+bazel-attempt_three
+bazel-bin
+bazel-testlogs
+MODULE.bazel.lock
