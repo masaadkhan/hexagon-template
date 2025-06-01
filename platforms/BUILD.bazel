@@ -1,0 +1,16 @@
+constraint_setting(
+    name = "cpu",
+)
+
+constraint_value(
+    name = "hexagon",
+    constraint_setting = ":cpu",
+)
+
+platform(
+    name = "hexagon_platform",
+    constraint_values = [
+        ":hexagon",
+        "@platforms//os:linux",
+    ],
+)
