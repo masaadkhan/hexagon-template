@@ -17,7 +17,7 @@ def _impl(ctx):
     tool_paths = [
         tool_path(
             name = "gcc",
-            path = "/usr/bin/clang",
+            path = "/usr/bin/clang-19",
         ),
         tool_path(
             name = "ld",

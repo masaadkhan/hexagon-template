@@ -3,6 +3,11 @@ package(default_visibility = ["//visibility:public"])
 load(":cc_toolchain_config.bzl", "cc_toolchain_config")
 cc_toolchain_config(name = "linux_x86_64_toolchain_config")
 
+filegroup(
+    name = "empty",
+    srcs = [],
+)
+
 cc_toolchain(
     name = "linux_x86_64_toolchain",
     toolchain_identifier = "linux_x86_64-toolchain",
