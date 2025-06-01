@@ -92,9 +92,13 @@ cc_toolchain_config = rule(
     provides = [CcToolchainConfigInfo],
 )
 
-hexagon_path = "/Documents/VLIW/clang+llvm-20.1.4-cross-hexagon-unknown-linux-musl/x86_64-linux-gnu"
-hexagon_bin_path = hexagon_path + "/bin"
-hexagon_include_path = hexagon_path + "/include"
+hexagon_path        = "/Documents/VLIW/clang+llvm-20.1.4-cross-hexagon-unknown-linux-musl/x86_64-linux-gnu"
+hexagon_sysroot     = hexagon_path + "/target/hexagon-unknown-linux-musl"
+hexagon_bin_path    = hexagon_path + "/bin"
+
+hexagon_inc_cxx     = hexagon_sysroot + "/usr/include/c++/v1"
+hexagon_inc_sys     = hexagon_sysroot + "/usr/include"
+hexagon_inc_clang   = hexagon_path + "/lib/clang/20/include"
 
 def _hexagon_impl(ctx):
     tool_paths = [
@@ -155,9 +159,11 @@ def _hexagon_impl(ctx):
         ctx = ctx,
         features = features,
         cxx_builtin_include_directories = [
-            hexagon_include_path
+            hexagon_inc_cxx,
+            hexagon_inc_sys,
+            hexagon_inc_clang,
         ],
-        toolchain_identifier = "hexagon",
+        toolchain_identifier = "hexagon-toolchain",
         host_system_name = "local",
         target_system_name = "hexagon",
         target_cpu = "hexagon",

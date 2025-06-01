@@ -5,6 +5,7 @@ constraint_setting(
 constraint_value(
     name = "hexagon",
     constraint_setting = ":cpu",
+    visibility = ["//visibility:public"],
 )
 
 platform(
